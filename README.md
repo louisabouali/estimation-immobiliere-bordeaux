@@ -62,3 +62,21 @@ Le projet est structuré de la manière suivante :
 1. Cloner le dépôt :  
 ```bash
 git clone https://github.com/ton-utilisateur/estimation-immobiliere-bordeaux.git
+```
+
+
+2. executer le fichier html : 
+
+```bash
+cd .../estimation-immobiliere-bordeaux/backend
+source .venv/bin/activate
+export PORT=5001
+python app.py
+
+
+cd .../estimation-immobiliere-bordeaux/frontend
+python3 -m http.server 5500
+
+open "http://localhost:5500/estimation.html"
+
+```
