@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estimer un bien | Bordeaux</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Estimer un bien à Bordeaux</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="estimation.html">Estimation</a></li>
+        <li><a href="historique.html">Historique</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Caractéristiques du bien</h2>
+
+      <form id="form-estimation">
+        <div>
+          <label>Quartier</label>
+          <select name="neighborhood_id" id="neighborhood"></select>
+        </div>
+
+        <div>
+          <label>Type</label>
+          <select name="property_type">
+            <option value="appartement" selected>Appartement</option>
+            <option value="maison">Maison</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Surface (m²)</label>
+          <input type="number" name="surface" min="8" step="0.5" required />
+        </div>
+
+        <div>
+          <label>Pièces</label>
+          <input type="number" name="rooms" min="1" />
+        </div>
+
+        <div>
+          <label>DPE</label>
+          <select name="dpe_grade">
+            <option>A</option><option>B</option><option>C</option>
+            <option selected>D</option><option>E</option><option>F</option><option>G</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Étage</label>
+          <input type="number" name="floor" value="2" />
+        </div>
+
+        <div>
+          <label>Année construction</label>
+          <input type="number" name="year_built" />
+        </div>
+
+        <div>
+          <label>Balcon</label>
+          <input type="checkbox" name="balcony" />
+        </div>
+
+        <div>
+          <label>Parking</label>
+          <input type="checkbox" name="parking" />
+        </div>
+
+        <div>
+          <label>Orientation</label>
+          <select name="orientation">
+            <option>E</option><option>S</option><option>O</option><option>N</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Bruit</label>
+          <select name="noise_level">
+            <option value="bas">Bas</option>
+            <option value="moyen" selected>Moyen</option>
+            <option value="eleve">Élevé</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Transports (0–10)</label>
+          <input type="number" name="transport_score" min="0" max="10" value="5" />
+        </div>
+
+        <div>
+          <label>Commodités (0–10)</label>
+          <input type="number" name="amenities_score" min="0" max="10" value="5" />
+        </div>
+
+        <div style="grid-column: 1 / -1;">
+          <button type="submit">Calculer</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" id="resultat" style="margin-top:1rem; display:none;">
+      <h2>Résultat</h2>
+      <p><strong>Estimation :</strong> <span id="estimation"></span> €</p>
+      <div id="details"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 EstimBdx</p>
+  </footer>
+
+  <script src="../js/api.js?v=2"></script>
+  <script src="../js/estimation.js?v=3"></script>
+
+</body>
+</html>

@@ -1,79 +1,93 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* En-tête */
-header {
-  background: #0077cc;
-  color: #fff;
-  padding: 1rem 0;
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
+/* Reset + base (reprend ton fichier) */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; line-height: 1.6; }
+header { background: #0077cc; color: #fff; padding: 1rem 0; text-align: center; }
+nav ul { list-style: none; display: flex; justify-content: center; gap: 1rem; }
+nav a { color: white; text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+main { max-width: 1000px; margin: 2rem auto; background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+label { font-weight: bold; }
+input, select, textarea, button { padding: 0.6rem; border: 1px solid #ccc; border-radius: 6px; }
+button { background: #0077cc; color: white; border: none; cursor: pointer; }
+button:hover { background: #005fa3; }
+.card { border: 1px solid #eee; border-radius: 8px; padding: 1rem; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.table th, .table td { border: 1px solid #eee; padding: 0.5rem; text-align: left; }
+.table th { background: #f7f7f7; }
+footer { text-align: center; padding: 1rem; background: #222; color: white; margin-top: 2rem; }
+.badge { display:inline-block; padding:.25rem .5rem; border-radius:999px; background:#eef6ff; color:#09467f; font-size:.85rem; }
+.notice { font-size:.9rem; color:#666; }
+/* --- Grille quartiers --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
+  margin-top: 1rem;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Contenu */
-main {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: #fff;
-  padding: 1.5rem;
+.card-quarter {
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Formulaire */
-form {
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,.08);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
-input, textarea, button {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.card-quarter .thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #eee;
 }
 
-button {
+.card-quarter .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
+.card-quarter .thumb .badge {
+  position: absolute;
+  right: .5rem;
+  bottom: .5rem;
   background: #0077cc;
-  color: white;
-  border: none;
-  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  padding: .3rem .5rem;
+  border-radius: 6px;
+  font-size: .9rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
 }
 
-button:hover {
+.card-quarter .body {
+  padding: .9rem 1rem 1rem;
+  display:flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.card-quarter h3 {
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.card-quarter .actions {
+  margin-top: .25rem;
+}
+
+.card-quarter .btn {
+  display: inline-block;
+  background: #0077cc;
+  color: #fff;
+  text-decoration: none;
+  padding: .45rem .7rem;
+  border-radius: 6px;
+  font-size: .9rem;
+}
+
+.card-quarter .btn:hover {
   background: #005fa3;
-}
-
-/* Pied de page */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #222;
-  color: white;
-  margin-top: 2rem;
 }

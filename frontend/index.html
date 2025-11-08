@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Page d'accueil de mon site web">
-  <title>Accueil | Mon Site</title>
-
-  <!-- Lien vers la feuille de style -->
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Estimation Bordeaux — Accueil</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
-  <!-- En-tête -->
-  <header>
-    <h1>Bienvenue sur mon site</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="pages/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+<h1>Estimation immobilière — Bordeaux</h1>
+<nav>
+<ul>
+<li><a href="index.html">Accueil</a></li>
+<li><a href="estimation.html">Estimer un bien</a></li>
+<li><a href="historique.html">Historique</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section>
+    <h2>Prix par quartier à Bordeaux</h2>
+    <p>Sélectionne un quartier pour estimer un bien ensuite.</p>
+  </section>
 
-  <!-- Contenu principal -->
-  <main>
-    <section>
-      <h2>Introduction</h2>
-      <p>Ceci est la page d’accueil de ton site web. Tu peux personnaliser ce texte.</p>
-    </section>
-  </main>
-
-  <!-- Pied de page -->
-  <footer>
-    <p>&copy; 2025 Mon Site. Tous droits réservés.</p>
-  </footer>
-
-  <!-- Script -->
-  <script src="js/main.js"></script>
+  <section class="grid" id="grid-quartiers" aria-live="polite">
+    <!-- cartes quartiers injectées ici par JS -->
+  </section>
+</main>
+<footer>
+<p>&copy; 2025 EstimBdx</p>
+</footer>
+<script src="js/api.js"></script>
+<script>
+// Charger la liste des quartiers
+(async () => {
+const data = await API.get('/neighborhoods');
+const root = document.getElementById('quartiers');
+data.forEach(q => {
+const div = document.createElement('div');
+div.className = 'card';
+div.innerHTML = `<strong>${q.name}</strong><br><span class="badge">~ ${q.avg_price_sqm.toLocaleString()} €/m²</span>`;
+root.appendChild(div);
+});
+})();
+</script>
+<script src="js/api.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>
