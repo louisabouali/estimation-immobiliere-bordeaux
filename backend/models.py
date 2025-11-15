@@ -55,3 +55,14 @@ class PriceHistory(db.Model):
     neighborhood_id = db.Column(db.Integer, db.ForeignKey('neighborhoods.id'))
     observed_at = db.Column(db.Date, nullable=False)
     avg_price_sqm = db.Column(db.Numeric(12, 2), nullable=False)
+
+
+class ContactMessage(db.Model):
+    __tablename__ = 'contact_messages'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(180), nullable=False)
+    email = db.Column(db.String(255), nullable=False)
+    phone = db.Column(db.String(50))
+    subject = db.Column(db.String(255))
+    message = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)

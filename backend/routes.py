@@ -2,6 +2,8 @@ from flask import Blueprint, request, jsonify
 from models import db, User, Neighborhood, Estimate, DPECoefficient
 from passlib.hash import bcrypt
 import jwt, os
+from models import db, User, Neighborhood, Estimate, DPECoefficient, ContactMessage
+
 
 api = Blueprint('api', __name__)
 
@@ -89,3 +91,21 @@ def history(user_id):
         "dpe_grade": r.dpe_grade,
         "estimated_price": float(r.estimated_price)
     } for r in rows])
+
+@api.route('/contact', methods=['POST'])
+def contact():
+    data = request.json or {}
+    name = (data.get('name') or '').strip()
+    email = (data.get('email') or '').strip()
+    message = (data.get('message') or '').strip()
+    phone = (data.get('phone') or '').strip()
+    subject = (data.get('subject') or '').strip()
+
+    if not name or not email or not message:
+        return jsonify({"error": "name_email_message_requis"}), 400
+
+    cm = ContactMessage(name=name, email=email, phone=phone, subject=subject, message=message)
+    db.session.add(cm)
+    db.session.commit()
+    return jsonify({"status": "ok", "id": cm.id})
+

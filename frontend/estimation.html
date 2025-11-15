@@ -14,6 +14,8 @@
         <li><a href="index.html">Accueil</a></li>
         <li><a href="estimation.html">Estimation</a></li>
         <li><a href="historique.html">Historique</a></li>
+        <li><a href="map.html">Carte</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -65,6 +67,15 @@
         </div>
 
         <div>
+          <label>État du bien</label>
+          <select name="condition">
+            <option value="neuf">Neuf / Rénové</option>
+            <option value="bon" selected>Bon état</option>
+            <option value="a_renover">À rénover</option>
+          </select>
+        </div>
+
+        <div>
           <label>Balcon</label>
           <input type="checkbox" name="balcony" />
         </div>
@@ -72,6 +83,11 @@
         <div>
           <label>Parking</label>
           <input type="checkbox" name="parking" />
+        </div>
+
+        <div>
+          <label>Piscine</label>
+          <input type="checkbox" name="pool" />
         </div>
 
         <div>
@@ -111,14 +127,22 @@
       <p><strong>Estimation :</strong> <span id="estimation"></span> €</p>
       <div id="details"></div>
     </section>
+
+    <section class="card" id="explication" style="margin-top:1rem; display:none;">
+      <h2>Comprendre votre estimation</h2>
+      <div id="explication-texte"></div>
+      <div style="margin-top:.5rem;">
+        <a id="btn-contact" class="btn" href="contact.html">Plus d’informations</a>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 EstimBdx</p>
   </footer>
 
-  <script src="../js/api.js?v=2"></script>
-  <script src="../js/estimation.js?v=3"></script>
-
+  <!-- IMPORTANT : ces chemins supposent que ce fichier est à la racine de /frontend -->
+  <script src="js/api.js?v=2"></script>
+  <script src="js/estimation.js?v=4"></script>
 </body>
 </html>

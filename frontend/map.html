@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carte de Bordeaux | EstimBdx</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Leaflet CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <style>#map { height: 70vh; border-radius: 8px; }</style>
+</head>
+<body>
+<header>
+  <h1>Cartographie des quartiers de Bordeaux</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="estimation.html">Estimation</a></li>
+      <li><a href="map.html">Carte</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="card">
+    <p>Survolez/cliquer pour voir le prix moyen au m² et accéder à l’estimation.</p>
+    <div id="map"></div>
+  </section>
+</main>
+
+<footer><p>&copy; 2025 EstimBdx</p></footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="js/api.js"></script>
+<script src="js/map.js"></script>
+</body>
+</html>

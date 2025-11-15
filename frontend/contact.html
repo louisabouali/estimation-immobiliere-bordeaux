@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | EstimBdx</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header>
+  <h1>Contact</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="estimation.html">Estimation</a></li>
+      <li><a href="map.html">Carte</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Besoin d’informations ?</h2>
+    <p>Remplis ce formulaire, on te recontacte rapidement.</p>
+    <form id="contact-form">
+      <label>Nom *</label>
+      <input type="text" name="name" required />
+      <label>Email *</label>
+      <input type="email" name="email" required />
+      <label>Téléphone</label>
+      <input type="text" name="phone" />
+      <label>Objet</label>
+      <input type="text" name="subject" />
+      <label>Message *</label>
+      <textarea name="message" rows="5" required></textarea>
+      <button type="submit">Envoyer</button>
+      <p id="contact-result" class="notice" style="display:none;margin-top:.5rem;"></p>
+    </form>
+  </section>
+</main>
+
+<footer><p>&copy; 2025 EstimBdx</p></footer>
+
+<script src="js/api.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

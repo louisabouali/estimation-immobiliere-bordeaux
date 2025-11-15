@@ -2,25 +2,24 @@
 console.log('home.js loaded');
 
 (function () {
-  // mapping manuel pour gérer accents / noms composés
   const SLUG_MAP = {
-    "Chartrons": "chartrons",
-    "Saint-Michel": "saint-michel",
-    "Caudéran": "cauderan",
-    "Bastide": "bastide",
-    "Saint-Seurin": "saint-seurin",
-    "Saint-Pierre": "saint-pierre",
+    "CHARTRONS": "CHARTRONS",
+    "SAINT-MICHEL": "saint-michel",
+    "CAUDÉRAN": "cauderan",
+    "BASTIDE": "bastide",
+    "SAINT-SEURIN": "saint-seurin",
+    "SAINT-PIERRE": "saint-pierre",
     "Nansouty": "nansouty",
     "Capucins - Victoire": "capucins-victoire",
     "Grand Parc": "grand-parc",
     "Mériadeck": "meriadek",
-    "Bordeaux-Lac": "bordeaux-lac",
-    "Bacalan": "bacalan",
+    "Bordeaux-Lac": "Bordeaux-Lac",
+    "Bacalan": "Bacalan",
     "Belcier (Euratlantique)": "belcier-euratlantique",
     "Saint-Augustin": "saint-augustin",
-    "Pey Berland / Hôtel de Ville": "pey-berland-hotel-de-ville"
+    
   };
-
+  //"Pey Berland / Hôtel de Ville": "pey-berland-hotel-de-ville"
   function slugifyName(name) {
     if (SLUG_MAP[name]) return SLUG_MAP[name];
     // fallback générique si nouveaux quartiers arrivent
@@ -70,3 +69,5 @@ console.log('home.js loaded');
 
   init();
 })();
+
+// etat, carte, piscine 
